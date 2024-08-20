@@ -14,19 +14,18 @@ class Funciones {
         
         return distancia;
     }
-
-    boolean esPar(int n) {
-        boolean resultado = divideA(2,n);
-        return resultado;
-    }
     boolean divideA(int m, int n) {
         boolean resultado = (n % m == 0);
         return resultado;
     }
-
+    boolean esPar(int n) {
+        boolean resultado = divideA(2,n);
+        return resultado;
+    }
     boolean esBisiesto(int n) {
-        // COMPLETAR
-        return false;
+        boolean resultado;
+        resultado = (divideA(4, n) && !(divideA(100, n)) || divideA(400, n));
+        return resultado;
     }
 
     int factorialIterativo(int n) {
