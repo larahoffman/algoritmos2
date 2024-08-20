@@ -16,9 +16,9 @@ class Funciones {
     }
 
     boolean esPar(int n) {
-        // COMPLETAR
-        return false;
-    }
+        boolean resultado = (n % 2 == 0);
+        return resultado;
+    } // debería hacer divideA()?
 
     boolean esBisiesto(int n) {
         // COMPLETAR
