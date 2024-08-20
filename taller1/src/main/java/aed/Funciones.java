@@ -34,8 +34,13 @@ class Funciones {
     }
 
     int factorialRecursivo(int n) {
-        // COMPLETAR
-        return 0;
+        boolean casoBase = (n == 0);
+        if (casoBase) {
+            return 1;
+        }else{
+            int factorialN = n * factorialRecursivo(n - 1);
+            return factorialN;
+        }
     }
 
     boolean esPrimo(int n) {
