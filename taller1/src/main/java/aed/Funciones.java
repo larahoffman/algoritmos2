@@ -29,8 +29,17 @@ class Funciones {
     }
 
     int factorialIterativo(int n) {
-        // COMPLETAR
-        return 0;
+        int i = 1;
+        int resultado = n;
+        if(n == 0){
+            resultado = 1;
+        }else{
+            while(i < n){
+                resultado *= i;
+                i += 1;
+            }
+        }
+        return resultado;
     }
 
     int factorialRecursivo(int n) {
