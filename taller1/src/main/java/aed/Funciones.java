@@ -52,10 +52,22 @@ class Funciones {
         }
     }
 
-    boolean esPrimo(int n) {
-        // COMPLETAR
-        return false;
+    public static boolean esPrimo(int n) {
+        boolean resultado = (primo(n) == 2);
+        return resultado;
     }
+    public static int primo(int n){
+        int i = 1;
+        int suma = 0;
+        while(i < n){
+            if(divideA(i,n)){
+                suma += 1;
+            }
+            i += 1;
+        }
+        return suma;
+        
+    } //falta
 
     int sumatoria(int[] numeros) {
         // COMPLETAR
