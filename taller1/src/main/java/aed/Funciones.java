@@ -116,8 +116,22 @@ class Funciones {
     }
 
     boolean esPrefijo(String s1, String s2) {
-        // COMPLETAR
-        return false;
+        int i = 0;
+        boolean resultado = false;
+        while(i < s1.length()){
+            char caracterS1 = s1.charAt(i); // se puede usar?
+            char caracterS2 = s2.charAt(i);
+            
+            if(s1.length() > s2.length()){
+                return false;
+            }else if(caracterS1 == caracterS2){
+                resultado = true;
+            }else{
+                resultado = false;
+            }
+            i += 1;
+        }
+        return resultado;
     }
 
     boolean esSufijo(String s1, String s2) {
