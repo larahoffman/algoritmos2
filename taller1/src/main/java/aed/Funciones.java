@@ -135,7 +135,25 @@ class Funciones {
     }
 
     boolean esSufijo(String s1, String s2) {
-        // COMPLETAR
-        return false;
+        int i = 0;
+        boolean resultado = false;
+        String auxiliarS1 = "";
+        String auxiliarS2 = "";
+        
+        while(i < s1.length()){
+            char caracterS1 = s1.charAt(i);
+            char caracterS2 = s2.charAt(i);
+            String strS1 = String.valueOf(caracterS1);
+            String strS2 = String.valueOf(caracterS2);
+            
+            auxiliarS1.concat(strS1);
+            auxiliarS2.concat(strS2);
+            
+            i += 1;
+        }
+        if(esPrefijo(auxiliarS1, auxiliarS2)){
+            resultado = true;
+        }//revisar
+        return resultado;
     }
 }
