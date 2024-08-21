@@ -52,14 +52,14 @@ class Funciones {
         }
     }
 
-    public static boolean esPrimo(int n) {
+    boolean esPrimo(int n) {
         boolean resultado = (primo(n) == 2);
         return resultado;
     }
-    public static int primo(int n){
+    int primo(int n){
         int i = 1;
         int suma = 0;
-        while(i < n){
+        while(i <= n){
             if(divideA(i,n)){
                 suma += 1;
             }
@@ -67,11 +67,16 @@ class Funciones {
         }
         return suma;
         
-    } //falta
+    }
 
     int sumatoria(int[] numeros) {
-        // COMPLETAR
-        return 0;
+        int i = 0;
+        int sumaElementos = 0;
+        while(i < numeros.length){
+            sumaElementos += numeros[i];
+            i += 1;
+        }
+        return sumaElementos;
     }
 
     int busqueda(int[] numeros, int buscado) {
