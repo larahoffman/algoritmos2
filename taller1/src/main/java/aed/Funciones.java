@@ -92,7 +92,14 @@ class Funciones {
     }
 
     boolean tienePrimo(int[] numeros) {
-        // COMPLETAR
+        int i = 0;
+        while(i < numeros.length){
+            int elemento = numeros[i];
+            if(esPrimo(elemento)){
+                return true;
+            }
+            i += 1;
+        }
         return false;
     }
 
