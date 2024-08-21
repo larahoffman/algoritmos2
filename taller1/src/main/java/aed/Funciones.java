@@ -80,8 +80,15 @@ class Funciones {
     }
 
     int busqueda(int[] numeros, int buscado) {
-        // COMPLETAR
-        return 0;
+        int i = 0;
+        while(i < numeros.length){
+            if(buscado == numeros[i]){
+                int posicion = i;
+                return posicion;
+            }
+            i += 1;
+        }
+        return 0; // ni debería ser necesario, por el requiere
     }
 
     boolean tienePrimo(int[] numeros) {
