@@ -1,6 +1,7 @@
 package aed;
 
 class Funciones {
+
     int cuadrado(int x) {
         int cuadrado = x * x;
         return cuadrado;
@@ -14,14 +15,17 @@ class Funciones {
         
         return distancia;
     }
+
     boolean divideA(int m, int n) {
         boolean resultado = (n % m == 0);
         return resultado;
     }
+
     boolean esPar(int n) {
         boolean resultado = divideA(2,n);
         return resultado;
     }
+
     boolean esBisiesto(int n) {
         boolean resultado;
         resultado = (divideA(4, n) && !(divideA(100, n)) || divideA(400, n));
@@ -56,6 +60,7 @@ class Funciones {
         boolean resultado = (primo(n) == 2);
         return resultado;
     }
+
     int primo(int n){
         int i = 1;
         int suma = 0;
@@ -118,13 +123,14 @@ class Funciones {
     boolean esPrefijo(String s1, String s2) {
         int i = 0;
         boolean resultado = false;
+        if(s1.length() > s2.length()){
+            return false;
+        }
         while(i < s1.length()){
-            char caracterS1 = s1.charAt(i); // se puede usar?
+            char caracterS1 = s1.charAt(i);
             char caracterS2 = s2.charAt(i);
             
-            if(s1.length() > s2.length()){
-                return false;
-            }else if(caracterS1 == caracterS2){
+            if(caracterS1 == caracterS2){
                 resultado = true;
             }else{
                 resultado = false;
@@ -137,23 +143,37 @@ class Funciones {
     boolean esSufijo(String s1, String s2) {
         int i = 0;
         boolean resultado = false;
+        String reversoS1 = reverso(s1);
+        String reversoS2 = reverso(s2);
         String auxiliarS1 = "";
         String auxiliarS2 = "";
-        
+
+        if(s1.length() > s2.length()){
+            return false;
+        }
         while(i < s1.length()){
-            char caracterS1 = s1.charAt(i);
-            char caracterS2 = s2.charAt(i);
-            String strS1 = String.valueOf(caracterS1);
-            String strS2 = String.valueOf(caracterS2);
-            
-            auxiliarS1.concat(strS1);
-            auxiliarS2.concat(strS2);
+            char caracterS1 = reversoS1.charAt(i);
+            char caracterS2 = reversoS2.charAt(i);
+
+            auxiliarS1 += caracterS1;
+            auxiliarS2 += caracterS2;
             
             i += 1;
         }
         if(esPrefijo(auxiliarS1, auxiliarS2)){
             resultado = true;
-        }//revisar
+        }
         return resultado;
+    }
+
+    String reverso(String str){
+        int i = str.length() - 1;
+        String nuevoStr = "";
+
+        while(i >= 0){
+            nuevoStr += str.charAt(i);
+            i--;
+        }
+        return nuevoStr;
     }
 }
