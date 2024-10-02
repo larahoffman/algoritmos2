@@ -1,26 +1,28 @@
 package aed;
 
 public class Fecha {
+    private int dia;
+    private int mes;
+
     public Fecha(int dia, int mes) {
-        // Implementar
+        this.dia = dia;
+        this.mes = mes;
     }
 
-    public Fecha(Fecha fecha) {
-        // Implementar
-    }
+    // public Fecha(Fecha fecha) {
+    //     // Implementar
+    // }
 
     public Integer dia() {
-        // Implementar
-        return -1;
+        return this.dia;
     }
 
     public Integer mes() {
-        // Implementar
-        return -1;
+        return this.mes;
     }
 
     public String toString() {
-        // Implementar
+        // El metodo toString debe retornar un String con el formato d/m.
         return "";
     }
 
