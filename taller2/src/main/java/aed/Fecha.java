@@ -22,8 +22,9 @@ public class Fecha {
     }
 
     public String toString() {
-        // El metodo toString debe retornar un String con el formato d/m.
-        return "";
+        String fechaComoTexto = "";
+        fechaComoTexto = "" + this.dia + "/" + this.mes + "";
+        return fechaComoTexto;
     }
 
     @Override
