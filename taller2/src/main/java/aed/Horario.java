@@ -16,11 +16,12 @@ public class Horario {
     public int minutos() {
         return this.minutos;
     }
-
+    // Ejercicio 6
     @Override
     public String toString() {
-        // Implementar
-        return "";
+        String horarioComoTexto = "";
+        horarioComoTexto = "" + this.hora + ":" + this.minutos + "";
+        return horarioComoTexto;
     }
 
     @Override
