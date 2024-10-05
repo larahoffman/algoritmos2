@@ -23,14 +23,14 @@ public class Recordatorio {
     public String mensaje() {
         return this.mensaje;
     }
-
+    // Ejercicio 9
     @Override
     public String toString() {
         String recordatorio = "";
         recordatorio = this.mensaje + " @ " + this.fecha + " " + this.horario;
         return recordatorio;
     }
-
+    // Ejercicio 10
     @Override
     public boolean equals(Object otro) {
         boolean otroEsNull = (otro == null);
