@@ -23,11 +23,19 @@ public class Horario {
         horarioComoTexto = "" + this.hora + ":" + this.minutos + "";
         return horarioComoTexto;
     }
-
+    // Ejercicio 7
     @Override
     public boolean equals(Object otro) {
-        // Implementar
-        return true;
+        boolean otroEsNull = (otro == null);
+
+        if(otroEsNull){
+            return false;
+        }else if(otro.getClass() != this.getClass()){
+            return false;
+        }else{
+            Horario otroHorario = (Horario) otro; //casting
+            return this.hora == otroHorario.hora && this.minutos == otroHorario.minutos;            
+        }
     }
 
 }
