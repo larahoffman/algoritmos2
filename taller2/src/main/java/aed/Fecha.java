@@ -8,10 +8,11 @@ public class Fecha {
         this.dia = dia;
         this.mes = mes;
     }
-
-    // public Fecha(Fecha fecha) {
-    //     // Implementar
-    // }
+    // hace una copia
+    public Fecha(Fecha fecha) {
+        this.dia = fecha.dia;
+        this.mes = fecha.mes;
+    }
 
     public Integer dia() {
         return this.dia;
@@ -26,16 +27,25 @@ public class Fecha {
         fechaComoTexto = "" + this.dia + "/" + this.mes + "";
         return fechaComoTexto;
     }
-
+    // Ejercicio 4
     @Override
     public boolean equals(Object otra) {
-        // Implementar
-        return true;
+        boolean otraEsNull = (otra == null);
+
+        if(otraEsNull){
+            return false;
+        }else if(otra.getClass() != this.getClass()){
+            return false;
+        }else{
+            Fecha otraFecha = (Fecha) otra; //casting
+            return this.dia == otraFecha.dia && this.mes == otraFecha.mes;            
+        }
+
     }
     // Ejercicio 3
     public void incrementarDia() {
-        int diaObjeto = this.dia;
-        int mesObjeto = this.mes;
+        int diaObjeto = dia();
+        int mesObjeto = mes();
         int cantidadDias = diasEnMes(mesObjeto);
 
         switch (cantidadDias) {
@@ -162,5 +172,4 @@ public class Fecha {
         };
         return dias[mes - 1];
     }
-
 }
