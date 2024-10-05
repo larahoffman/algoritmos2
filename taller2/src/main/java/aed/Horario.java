@@ -1,19 +1,20 @@
 package aed;
 
 public class Horario {
-
+    private int hora;
+    private int minutos;
+    // Ejercicio 5
     public Horario(int hora, int minutos) {
-        // Implementar
+        this.hora = hora;
+        this.minutos = minutos;
     }
 
     public int hora() {
-        // Implementar
-        return -1;
+        return this.hora;
     }
 
     public int minutos() {
-        // Implementar
-        return -1;
+        return this.minutos;
     }
 
     @Override
