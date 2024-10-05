@@ -4,11 +4,11 @@ public class Recordatorio {
 
     private String mensaje;
     private Fecha fecha;
-    private Horario horario;
+    private Horario horario; 
     // Ejercicio 8
     public Recordatorio(String mensaje, Fecha fecha, Horario horario) {
         this.mensaje = mensaje;
-        this.fecha = fecha;
+        this.fecha = new Fecha(fecha);
         this.horario = horario;
     }
 
@@ -17,7 +17,7 @@ public class Recordatorio {
     }
 
     public Fecha fecha() {
-        return this.fecha;
+        return new Fecha(this.fecha);
     }
 
     public String mensaje() {
@@ -26,14 +26,23 @@ public class Recordatorio {
 
     @Override
     public String toString() {
-        // Implementar
-        return "";
+        String recordatorio = "";
+        recordatorio = this.mensaje + " @ " + this.fecha + " " + this.horario;
+        return recordatorio;
     }
 
     @Override
     public boolean equals(Object otro) {
-        // Implementar
-        return true;
+        boolean otroEsNull = (otro == null);
+
+        if(otroEsNull){
+            return false;
+        }else if(otro.getClass() != this.getClass()){
+            return false;
+        }else{
+            Recordatorio otroRecordatorio = (Recordatorio) otro; //casting
+            return this.mensaje == otroRecordatorio.mensaje && this.fecha == otroRecordatorio.fecha && this.horario == otroRecordatorio.horario;            
+        }
     }
 
 }
