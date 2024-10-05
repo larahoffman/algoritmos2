@@ -20,7 +20,7 @@ public class Horario {
     @Override
     public String toString() {
         String horarioComoTexto = "";
-        horarioComoTexto = "" + this.hora + ":" + this.minutos + "";
+        horarioComoTexto = this.hora + ":" + this.minutos;
         return horarioComoTexto;
     }
     // Ejercicio 7

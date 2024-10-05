@@ -24,7 +24,7 @@ public class Fecha {
     // Ejercicio 2
     public String toString() {
         String fechaComoTexto = "";
-        fechaComoTexto = "" + this.dia + "/" + this.mes + "";
+        fechaComoTexto = this.dia + "/" + this.mes;
         return fechaComoTexto;
     }
     // Ejercicio 4
