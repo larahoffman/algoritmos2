@@ -1,23 +1,36 @@
 package aed;
 
 class ArregloRedimensionableDeRecordatorios {
+    private Recordatorio[] recordatorios;
 
     public ArregloRedimensionableDeRecordatorios() {
-        // Implementar
+        recordatorios = new Recordatorio[0];
     }
-
+    // Ejercicio 11
     public int longitud() {
-        // Implementar
-        return -1;
+        return recordatorios.length;
     }
 
     public void agregarAtras(Recordatorio i) {
-        // Implementar
+        recordatorios = agregarRecordatorio(recordatorios, i);
+    }
+
+    public Recordatorio[] agregarRecordatorio(Recordatorio[] recordatorios, Recordatorio recordatorio){
+        int longitudRecordatorios = recordatorios.length;
+        Recordatorio[] nuevoArrayRecordatorios = new Recordatorio[longitudRecordatorios + 1];
+
+        for(int i = 0; i < longitudRecordatorios; i ++){
+            nuevoArrayRecordatorios[i] = recordatorios[i];
+        }
+
+        int longitudNuevoArrayRecordatorios = nuevoArrayRecordatorios.length;
+        nuevoArrayRecordatorios[longitudNuevoArrayRecordatorios - 1] = recordatorio;
+
+        return nuevoArrayRecordatorios;
     }
 
     public Recordatorio obtener(int i) {
-        // Implementar
-        return null;
+        return recordatorios[i];
     }
 
     public void quitarAtras() {
