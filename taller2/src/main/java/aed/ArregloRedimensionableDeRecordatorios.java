@@ -32,7 +32,7 @@ class ArregloRedimensionableDeRecordatorios {
     public Recordatorio obtener(int i) {
         return recordatorios[i];
     }
-
+    // Ejercicio 12
     public void quitarAtras() {
         Recordatorio[] nuevoArrayRecordatorios = new Recordatorio[recordatorios.length - 1];
         for(int i = 0; i < nuevoArrayRecordatorios.length; i++){
