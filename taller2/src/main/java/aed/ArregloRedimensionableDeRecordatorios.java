@@ -34,7 +34,11 @@ class ArregloRedimensionableDeRecordatorios {
     }
 
     public void quitarAtras() {
-        // Implementar
+        Recordatorio[] nuevoArrayRecordatorios = new Recordatorio[recordatorios.length - 1];
+        for(int i = 0; i < nuevoArrayRecordatorios.length; i++){
+            nuevoArrayRecordatorios[i] = recordatorios[i];
+        }
+        recordatorios = nuevoArrayRecordatorios;
     }
 
     public void modificarPosicion(int indice, Recordatorio valor) {
