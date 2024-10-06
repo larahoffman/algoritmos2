@@ -20,21 +20,23 @@ public class Agenda {
         arreglo += "=====\n";
         for(int i = 0; i < recordatorios.longitud(); i++){
             Recordatorio recordatorio = recordatorios.obtener(i);
-            arreglo += recordatorio.toString() + "\n";
+            if(recordatorio.fecha().equals(fechaActual)){
+                arreglo += recordatorio.toString() + "\n";   
+            }
         };
-        
         return arreglo;
     }
 
+    // Ejercicio 18
     public void incrementarDia() {
-        // Implementar
+        fechaActual.incrementarDia();
     }
 
+    // Ej 16
     public Fecha fechaActual() {
         Agenda agenda = new Agenda(fechaActual);
         Fecha fechaAgenda = agenda.fechaActual;
         Fecha fechaActual = new Fecha(fechaAgenda);
         return fechaActual;
     }
-
 }
