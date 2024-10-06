@@ -42,11 +42,16 @@ class ArregloRedimensionableDeRecordatorios {
     }
     // Ejercicio 13
     public void modificarPosicion(int indice, Recordatorio valor) {
-        recordatorios[indice] = valor; //aca no estoy validando que el indice pasado este en rango
+        recordatorios[indice] = valor; //aca no estoy validando que el indice pasado este en rango, deberia?
     }
-
+    // Ejercicio 14
     public ArregloRedimensionableDeRecordatorios(ArregloRedimensionableDeRecordatorios vector) {
-        // Implementar
+        int longitudVector = vector.recordatorios.length;
+        this.recordatorios = new Recordatorio[longitudVector];
+
+        for(int i = 0; i < longitudVector; i++){
+            this.recordatorios[i] = vector.recordatorios[i];
+        }
     }
 
     public ArregloRedimensionableDeRecordatorios copiar() {
