@@ -41,7 +41,7 @@ public class Recordatorio {
             return false;
         }else{
             Recordatorio otroRecordatorio = (Recordatorio) otro; //casting
-            return this.mensaje == otroRecordatorio.mensaje && this.fecha == otroRecordatorio.fecha && this.horario == otroRecordatorio.horario;            
+            return this.mensaje == otroRecordatorio.mensaje && fecha.equals(otroRecordatorio.fecha) && horario.equals(otroRecordatorio.horario);            
         }
     }
 
