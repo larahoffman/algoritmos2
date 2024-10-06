@@ -50,12 +50,15 @@ class ArregloRedimensionableDeRecordatorios {
         this.recordatorios = new Recordatorio[longitudVector];
 
         for(int i = 0; i < longitudVector; i++){
-            this.recordatorios[i] = vector.recordatorios[i];
+            Fecha fecha = new Fecha(vector.recordatorios[i].fecha().dia(), vector.recordatorios[i].fecha().mes());
+            Horario horario = new Horario(vector.recordatorios[i].horario().hora(), vector.recordatorios[i].horario().minutos());
+
+            this.recordatorios[i] = new Recordatorio(vector.recordatorios[i].mensaje(), fecha, horario);
         }
     }
-
+    // Ejercicio 15
     public ArregloRedimensionableDeRecordatorios copiar() {
-        // Implementar
-        return null;
+        ArregloRedimensionableDeRecordatorios copiaVector = new ArregloRedimensionableDeRecordatorios(this);
+        return copiaVector;
     }
 }
