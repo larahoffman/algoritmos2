@@ -40,9 +40,9 @@ class ArregloRedimensionableDeRecordatorios {
         }
         recordatorios = nuevoArrayRecordatorios;
     }
-
+    // Ejercicio 13
     public void modificarPosicion(int indice, Recordatorio valor) {
-        // Implementar
+        recordatorios[indice] = valor; //aca no estoy validando que el indice pasado este en rango
     }
 
     public ArregloRedimensionableDeRecordatorios(ArregloRedimensionableDeRecordatorios vector) {
