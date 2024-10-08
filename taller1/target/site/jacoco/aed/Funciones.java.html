@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Funciones.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">labo1</a> &gt; <a href="index.source.html" class="el_package">aed</a> &gt; <span class="el_source">Funciones.java</span></div><h1>Funciones.java</h1><pre class="source lang-java linenums">package aed;
+
+<span class="fc" id="L3">class Funciones {</span>
+
+    int cuadrado(int x) {
+<span class="fc" id="L6">        int cuadrado = x * x;</span>
+<span class="fc" id="L7">        return cuadrado;</span>
+    }
+
+    double distancia(double x, double y) {
+        double distancia;
+<span class="fc" id="L12">        double cuadradoX = x * x;</span>
+<span class="fc" id="L13">        double cuadradoY = y * y;</span>
+<span class="fc" id="L14">        distancia = Math.sqrt((cuadradoX) + (cuadradoY));</span>
+        
+<span class="fc" id="L16">        return distancia;</span>
+    }
+
+    boolean divideA(int m, int n) {
+<span class="fc bfc" id="L20" title="All 2 branches covered.">        boolean resultado = (n % m == 0);</span>
+<span class="fc" id="L21">        return resultado;</span>
+    }
+
+    boolean esPar(int n) {
+<span class="fc" id="L25">        boolean resultado = divideA(2,n);</span>
+<span class="fc" id="L26">        return resultado;</span>
+    }
+
+    boolean esBisiesto(int n) {
+        boolean resultado;
+<span class="fc bfc" id="L31" title="All 6 branches covered.">        resultado = (divideA(4, n) &amp;&amp; !(divideA(100, n)) || divideA(400, n));</span>
+<span class="fc" id="L32">        return resultado;</span>
+    }
+
+    int factorialIterativo(int n) {
+<span class="fc" id="L36">        int i = 1;</span>
+<span class="fc" id="L37">        int resultado = n;</span>
+<span class="fc bfc" id="L38" title="All 2 branches covered.">        if(n == 0){</span>
+<span class="fc" id="L39">            resultado = 1;</span>
+<span class="fc" id="L40">        }else{</span>
+<span class="fc bfc" id="L41" title="All 2 branches covered.">            while(i &lt; n){</span>
+<span class="fc" id="L42">                resultado *= i;</span>
+<span class="fc" id="L43">                i += 1;</span>
+            }
+        }
+<span class="fc" id="L46">        return resultado;</span>
+    }
+
+    int factorialRecursivo(int n) {
+<span class="fc bfc" id="L50" title="All 2 branches covered.">        boolean casoBase = (n == 0);</span>
+<span class="fc bfc" id="L51" title="All 2 branches covered.">        if (casoBase) {</span>
+<span class="fc" id="L52">            return 1;</span>
+        }else{
+<span class="fc" id="L54">            int factorialN = n * factorialRecursivo(n - 1);</span>
+<span class="fc" id="L55">            return factorialN;</span>
+        }
+    }
+
+    boolean esPrimo(int n) {
+<span class="fc bfc" id="L60" title="All 2 branches covered.">        boolean resultado = (primo(n) == 2);</span>
+<span class="fc" id="L61">        return resultado;</span>
+    }
+
+    int primo(int n){
+<span class="fc" id="L65">        int i = 1;</span>
+<span class="fc" id="L66">        int suma = 0;</span>
+<span class="fc bfc" id="L67" title="All 2 branches covered.">        while(i &lt;= n){</span>
+<span class="fc bfc" id="L68" title="All 2 branches covered.">            if(divideA(i,n)){</span>
+<span class="fc" id="L69">                suma += 1;</span>
+            }
+<span class="fc" id="L71">            i += 1;</span>
+        }
+<span class="fc" id="L73">        return suma;</span>
+        
+    }
+
+    int sumatoria(int[] numeros) {
+<span class="fc" id="L78">        int i = 0;</span>
+<span class="fc" id="L79">        int sumaElementos = 0;</span>
+<span class="fc bfc" id="L80" title="All 2 branches covered.">        while(i &lt; numeros.length){</span>
+<span class="fc" id="L81">            sumaElementos += numeros[i];</span>
+<span class="fc" id="L82">            i += 1;</span>
+        }
+<span class="fc" id="L84">        return sumaElementos;</span>
+    }
+
+    int busqueda(int[] numeros, int buscado) {
+<span class="fc" id="L88">        int i = 0;</span>
+<span class="pc bpc" id="L89" title="1 of 2 branches missed.">        while(i &lt; numeros.length){</span>
+<span class="fc bfc" id="L90" title="All 2 branches covered.">            if(buscado == numeros[i]){</span>
+<span class="fc" id="L91">                int posicion = i;</span>
+<span class="fc" id="L92">                return posicion;</span>
+            }
+<span class="fc" id="L94">            i += 1;</span>
+        }
+<span class="nc" id="L96">        return 0; // ni debería ser necesario, por el requiere</span>
+    }
+
+    boolean tienePrimo(int[] numeros) {
+<span class="fc" id="L100">        int i = 0;</span>
+<span class="fc bfc" id="L101" title="All 2 branches covered.">        while(i &lt; numeros.length){</span>
+<span class="fc" id="L102">            int elemento = numeros[i];</span>
+<span class="fc bfc" id="L103" title="All 2 branches covered.">            if(esPrimo(elemento)){</span>
+<span class="fc" id="L104">                return true;</span>
+            }
+<span class="fc" id="L106">            i += 1;</span>
+        }
+<span class="fc" id="L108">        return false;</span>
+    }
+
+    boolean todosPares(int[] numeros) {
+<span class="fc" id="L112">        int i = 0;</span>
+<span class="fc bfc" id="L113" title="All 2 branches covered.">        while(i &lt; numeros.length){</span>
+<span class="fc" id="L114">            int elemento = numeros[i];</span>
+<span class="fc bfc" id="L115" title="All 2 branches covered.">            if(!(esPar(elemento))){</span>
+<span class="fc" id="L116">                return false;</span>
+            }
+<span class="fc" id="L118">            i += 1;</span>
+        }
+<span class="fc" id="L120">        return true;</span>
+    }
+
+    boolean esPrefijo(String s1, String s2) {
+<span class="fc" id="L124">        int i = 0;</span>
+<span class="fc" id="L125">        boolean resultado = false;</span>
+<span class="fc bfc" id="L126" title="All 2 branches covered.">        if(s1.length() &gt; s2.length()){</span>
+<span class="fc" id="L127">            return false;</span>
+        }
+<span class="fc bfc" id="L129" title="All 2 branches covered.">        while(i &lt; s1.length()){</span>
+<span class="fc" id="L130">            char caracterS1 = s1.charAt(i);</span>
+<span class="fc" id="L131">            char caracterS2 = s2.charAt(i);</span>
+            
+<span class="fc bfc" id="L133" title="All 2 branches covered.">            if(caracterS1 == caracterS2){</span>
+<span class="fc" id="L134">                resultado = true;</span>
+<span class="fc" id="L135">            }else{</span>
+<span class="fc" id="L136">                resultado = false;</span>
+            }
+<span class="fc" id="L138">            i += 1;</span>
+        }
+<span class="fc" id="L140">        return resultado;</span>
+    }
+
+    boolean esSufijo(String s1, String s2) {
+<span class="fc" id="L144">        int i = 0;</span>
+<span class="fc" id="L145">        boolean resultado = false;</span>
+<span class="fc" id="L146">        String reversoS1 = reverso(s1);</span>
+<span class="fc" id="L147">        String reversoS2 = reverso(s2);</span>
+<span class="fc" id="L148">        String auxiliarS1 = &quot;&quot;;</span>
+<span class="fc" id="L149">        String auxiliarS2 = &quot;&quot;;</span>
+
+<span class="fc bfc" id="L151" title="All 2 branches covered.">        if(s1.length() &gt; s2.length()){</span>
+<span class="fc" id="L152">            return false;</span>
+        }
+<span class="fc bfc" id="L154" title="All 2 branches covered.">        while(i &lt; s1.length()){</span>
+<span class="fc" id="L155">            char caracterS1 = reversoS1.charAt(i);</span>
+<span class="fc" id="L156">            char caracterS2 = reversoS2.charAt(i);</span>
+
+<span class="fc" id="L158">            auxiliarS1 += caracterS1;</span>
+<span class="fc" id="L159">            auxiliarS2 += caracterS2;</span>
+            
+<span class="fc" id="L161">            i += 1;</span>
+        }
+<span class="fc bfc" id="L163" title="All 2 branches covered.">        if(esPrefijo(auxiliarS1, auxiliarS2)){</span>
+<span class="fc" id="L164">            resultado = true;</span>
+        }
+<span class="fc" id="L166">        return resultado;</span>
+    }
+
+    String reverso(String str){
+<span class="fc" id="L170">        int i = str.length() - 1;</span>
+<span class="fc" id="L171">        String nuevoStr = &quot;&quot;;</span>
+
+<span class="fc bfc" id="L173" title="All 2 branches covered.">        while(i &gt;= 0){</span>
+<span class="fc" id="L174">            nuevoStr += str.charAt(i);</span>
+<span class="fc" id="L175">            i--;</span>
+        }
+<span class="fc" id="L177">        return nuevoStr;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>

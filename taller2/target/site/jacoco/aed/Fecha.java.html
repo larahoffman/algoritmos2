@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Fecha.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">labo2</a> &gt; <a href="index.source.html" class="el_package">aed</a> &gt; <span class="el_source">Fecha.java</span></div><h1>Fecha.java</h1><pre class="source lang-java linenums">package aed;
+
+public class Fecha {
+    private int dia;
+    private int mes;
+    // Ejercicio 1
+<span class="fc" id="L7">    public Fecha(int dia, int mes) {</span>
+<span class="fc" id="L8">        this.dia = dia;</span>
+<span class="fc" id="L9">        this.mes = mes;</span>
+<span class="fc" id="L10">    }</span>
+    // hace una copia
+<span class="fc" id="L12">    public Fecha(Fecha fecha) {</span>
+<span class="fc" id="L13">        this.dia = fecha.dia;</span>
+<span class="fc" id="L14">        this.mes = fecha.mes;</span>
+<span class="fc" id="L15">    }</span>
+
+    public Integer dia() {
+<span class="fc" id="L18">        return this.dia;</span>
+    }
+
+    public Integer mes() {
+<span class="fc" id="L22">        return this.mes;</span>
+    }
+    // Ejercicio 2
+    public String toString() {
+<span class="fc" id="L26">        String fechaComoTexto = &quot;&quot;;</span>
+<span class="fc" id="L27">        fechaComoTexto = this.dia + &quot;/&quot; + this.mes;</span>
+<span class="fc" id="L28">        return fechaComoTexto;</span>
+    }
+    // Ejercicio 4
+    @Override
+    public boolean equals(Object otra) {
+<span class="fc bfc" id="L33" title="All 2 branches covered.">        boolean otraEsNull = (otra == null);</span>
+
+<span class="fc bfc" id="L35" title="All 2 branches covered.">        if(otraEsNull){</span>
+<span class="fc" id="L36">            return false;</span>
+<span class="fc bfc" id="L37" title="All 2 branches covered.">        }else if(otra.getClass() != this.getClass()){</span>
+<span class="fc" id="L38">            return false;</span>
+        }else{
+<span class="fc" id="L40">            Fecha otraFecha = (Fecha) otra; //casting</span>
+<span class="fc bfc" id="L41" title="All 4 branches covered.">            return this.dia == otraFecha.dia &amp;&amp; this.mes == otraFecha.mes;            </span>
+        }
+
+    }
+    // Ejercicio 3
+    public void incrementarDia() {
+<span class="fc" id="L47">        int diaObjeto = dia();</span>
+<span class="fc" id="L48">        int mesObjeto = mes();</span>
+<span class="fc" id="L49">        int cantidadDias = diasEnMes(mesObjeto);</span>
+
+<span class="pc bpc" id="L51" title="1 of 4 branches missed.">        switch (cantidadDias) {</span>
+            case 31:
+<span class="pc bpc" id="L53" title="1 of 2 branches missed.">                if(mesObjeto == 1){</span>
+<span class="nc bnc" id="L54" title="All 2 branches missed.">                    if(diaObjeto &lt; 31){</span>
+<span class="nc" id="L55">                        this.dia += 1;</span>
+<span class="nc" id="L56">                    }</span>
+                    else{
+<span class="nc" id="L58">                        this.dia = 1;</span>
+<span class="nc" id="L59">                        this.mes = 2;  </span>
+                    }
+                }
+<span class="pc bpc" id="L62" title="1 of 2 branches missed.">                if(mesObjeto == 3){</span>
+<span class="nc bnc" id="L63" title="All 2 branches missed.">                    if(diaObjeto &lt; 31){</span>
+<span class="nc" id="L64">                        this.dia += 1;</span>
+<span class="nc" id="L65">                    }</span>
+                    else{
+<span class="nc" id="L67">                        this.dia = 1;</span>
+<span class="nc" id="L68">                        this.mes = 4;  </span>
+                    }
+                }
+<span class="fc bfc" id="L71" title="All 2 branches covered.">                if (mesObjeto == 5) {</span>
+<span class="pc bpc" id="L72" title="1 of 2 branches missed.">                    if(diaObjeto &lt; 31){</span>
+<span class="fc" id="L73">                        this.dia += 1;</span>
+<span class="fc" id="L74">                    }</span>
+                    else{
+<span class="nc" id="L76">                        this.dia = 1;</span>
+<span class="nc" id="L77">                        this.mes = 6;  </span>
+                    }
+                }
+<span class="pc bpc" id="L80" title="1 of 2 branches missed.">                if (mesObjeto == 7) {</span>
+<span class="nc bnc" id="L81" title="All 2 branches missed.">                    if(diaObjeto &lt; 31){</span>
+<span class="nc" id="L82">                        this.dia += 1;</span>
+<span class="nc" id="L83">                    }</span>
+                    else{
+<span class="nc" id="L85">                        this.dia = 1;</span>
+<span class="nc" id="L86">                        this.mes = 8;</span>
+                    }
+                }
+<span class="pc bpc" id="L89" title="1 of 2 branches missed.">                if (mesObjeto == 8) {</span>
+<span class="nc bnc" id="L90" title="All 2 branches missed.">                    if(diaObjeto &lt; 31){</span>
+<span class="nc" id="L91">                        this.dia += 1;</span>
+<span class="nc" id="L92">                    }</span>
+                    else{
+<span class="nc" id="L94">                        this.dia = 1;</span>
+<span class="nc" id="L95">                        this.mes = 9;  </span>
+                    }
+                }
+<span class="pc bpc" id="L98" title="1 of 2 branches missed.">                if (mesObjeto == 10) {</span>
+<span class="nc bnc" id="L99" title="All 2 branches missed.">                    if(diaObjeto &lt; 31){</span>
+<span class="nc" id="L100">                        this.dia += 1;</span>
+<span class="nc" id="L101">                    }</span>
+                    else{
+<span class="nc" id="L103">                        this.dia = 1;</span>
+<span class="nc" id="L104">                        this.mes = 11;  </span>
+                    }
+                }
+<span class="fc bfc" id="L107" title="All 2 branches covered.">                if (mesObjeto == 12) {</span>
+<span class="pc bpc" id="L108" title="1 of 2 branches missed.">                    if(diaObjeto &lt; 31){</span>
+<span class="nc" id="L109">                        this.dia += 1;</span>
+<span class="nc" id="L110">                    }</span>
+                    else{
+<span class="fc" id="L112">                        this.dia = 1;</span>
+<span class="fc" id="L113">                        this.mes = 1;  </span>
+                    }
+                }
+<span class="fc" id="L116">                break;</span>
+            case 28:
+<span class="pc bpc" id="L118" title="1 of 2 branches missed.">                if(diaObjeto &lt; 28){</span>
+<span class="nc" id="L119">                    this.dia += 1;</span>
+<span class="nc" id="L120">                }else{</span>
+<span class="fc" id="L121">                    this.dia = 1;</span>
+<span class="fc" id="L122">                    this.mes = 3;</span>
+                }
+<span class="fc" id="L124">                break;</span>
+            case 30:
+<span class="pc bpc" id="L126" title="1 of 2 branches missed.">                if (mesObjeto == 4) {</span>
+<span class="nc bnc" id="L127" title="All 2 branches missed.">                    if(diaObjeto &lt; 30){</span>
+<span class="nc" id="L128">                        this.dia += 1;</span>
+<span class="nc" id="L129">                    }</span>
+                    else{
+<span class="nc" id="L131">                        this.dia = 1;</span>
+<span class="nc" id="L132">                        this.mes = 5;  </span>
+                    }
+                }
+<span class="pc bpc" id="L135" title="1 of 2 branches missed.">                if (mesObjeto == 6) {</span>
+<span class="fc bfc" id="L136" title="All 2 branches covered.">                    if(diaObjeto &lt; 30){</span>
+<span class="fc" id="L137">                        this.dia += 1;</span>
+<span class="fc" id="L138">                    }</span>
+                    else{
+<span class="fc" id="L140">                        this.dia = 1;</span>
+<span class="fc" id="L141">                        this.mes = 7;  </span>
+                    }
+                }
+<span class="pc bpc" id="L144" title="1 of 2 branches missed.">                if (mesObjeto == 9) {</span>
+<span class="nc bnc" id="L145" title="All 2 branches missed.">                    if(diaObjeto &lt; 30){</span>
+<span class="nc" id="L146">                        this.dia += 1;</span>
+<span class="nc" id="L147">                    }</span>
+                    else{
+<span class="nc" id="L149">                        this.dia = 1;</span>
+<span class="nc" id="L150">                        this.mes = 10;  </span>
+                    }
+                }
+<span class="pc bpc" id="L153" title="1 of 2 branches missed.">                if (mesObjeto == 11) {</span>
+<span class="nc bnc" id="L154" title="All 2 branches missed.">                    if(diaObjeto &lt; 30){</span>
+<span class="nc" id="L155">                        this.dia += 1;</span>
+<span class="nc" id="L156">                    }</span>
+                    else{
+<span class="nc" id="L158">                        this.dia = 1;</span>
+<span class="nc" id="L159">                        this.mes = 12;</span>
+                    }
+                }
+                break;  
+        }
+<span class="fc" id="L164">    }</span>
+
+    private int diasEnMes(int mes) {
+<span class="fc" id="L167">        int dias[] = {</span>
+                // ene, feb, mar, abr, may, jun
+<span class="fc" id="L169">                31, 28, 31, 30, 31, 30,</span>
+                // jul, ago, sep, oct, nov, dic
+<span class="fc" id="L171">                31, 31, 30, 31, 30, 31</span>
+        };
+<span class="fc" id="L173">        return dias[mes - 1];</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>
