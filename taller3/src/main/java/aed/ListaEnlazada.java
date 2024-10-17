@@ -3,18 +3,30 @@ package aed;
 import java.util.*;
 
 public class ListaEnlazada<T> implements Secuencia<T> {
-    // Completar atributos privados
+    private Nodo<T> primero;
+    private Nodo<T> ultimo;
+    private int tamanio;
 
-    private class Nodo {
-        // Completar
+    private class Nodo<T> {
+        T dato;
+        Nodo<T> anterior;
+        Nodo<T> siguiente;
+
+        Nodo(T d) {
+            dato = d;
+            this.anterior = null;
+            this.siguiente = null;
+        }
     }
 
     public ListaEnlazada() {
-        throw new UnsupportedOperationException("No implementada aun");
+        this.primero = null;
+        this.ultimo = null;
+        this.tamanio = 0;
     }
 
     public int longitud() {
-        throw new UnsupportedOperationException("No implementada aun");
+        return tamanio;
     }
 
     public void agregarAdelante(T elem) {
