@@ -56,14 +56,14 @@ public class ListaEnlazada<T> implements Secuencia<T> {
 	public T obtener(int i) {
 	    Nodo<T> nodoActual;
 	    if(!((i > longitud()) || (i < 0))){ // acá valido que no esté fuera de rango
-                if (index < longitud() / 2) {
+                if (i < longitud() / 2) {
                     nodoActual = primero;
-                    for (int indice = 0; indice < i; indice++) {
+                    for (int j = 0; j < i; j++) {
                         actual = actual.siguiente;
                     }
                 } else {
                     actual = ultimo;
-                    for (int indice = longitud - 1; indice > i; indice--) {
+                    for (int j = longitud - 1; j > i; j--) {
                         actual = actual.anterior;
                     }
                 }
