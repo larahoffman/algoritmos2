@@ -30,7 +30,15 @@ public class ListaEnlazada<T> implements Secuencia<T> {
     }
 
     public void agregarAdelante(T elem) {
-        throw new UnsupportedOperationException("No implementada aun");
+        Nodo<T> nuevo = new Nodo<T>(elem);
+        if(primero == null){ // caso lista vacía
+            primero = nuevo;
+            ultimo = nuevo;
+        }else{
+            nuevo.siguiente = primero;
+            primero.anterior = nuevo;
+            primero = nuevo;
+        }
     }
 
     public void agregarAtras(T elem) {
