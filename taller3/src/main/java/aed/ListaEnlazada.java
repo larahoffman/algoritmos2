@@ -52,10 +52,23 @@ public class ListaEnlazada<T> implements Secuencia<T> {
 		ultimo = nuevo;
 	    }
 	}
-
-    public T obtener(int i) {
-        throw new UnsupportedOperationException("No implementada aun");
-    }
+	// falta testear
+	public T obtener(int i) {
+	    Nodo<T> nodoActual;
+	    if(!((i > longitud()) || (i < 0))){ // acá valido que no esté fuera de rango
+                if (index < longitud() / 2) {
+                    nodoActual = primero;
+                    for (int indice = 0; indice < i; indice++) {
+                        actual = actual.siguiente;
+                    }
+                } else {
+                    actual = ultimo;
+                    for (int indice = longitud - 1; indice > i; indice--) {
+                        actual = actual.anterior;
+                    }
+                }
+	    }
+	}
 
     public void eliminar(int i) {
         throw new UnsupportedOperationException("No implementada aun");
