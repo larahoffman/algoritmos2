@@ -67,12 +67,51 @@ public class ListaEnlazada<T> implements Secuencia<T> {
                         nodoActual = nodoActual.anterior;
                     }
                 }
-	    }
-	}
+			}
+			return nodoActual.dato;
+		}
+		public Nodo<T> obtenerNodo(int i) {
+			Nodo<T> nodoActual;
+			if(!((i > longitud()) || (i < 0))){ // acá valido que no esté fuera de rango
+                if (i < longitud() / 2) {
+                    nodoActual = primero;
+                    for (int j = 0; j < i; j++) {
+                        nodoActual = nodoActual.siguiente;
+                    }
+                } else {
+                    nodoActual = ultimo;
+                    for (int j = longitud - 1; j > i; j--) {
+                        nodoActual = nodoActual.anterior;
+                    }
+                }
+			}
+			return nodoActual;
+		}
+        // falta testear
+	public void eliminar(int i) {
+            Nodo<T> nodoActual = obtenerNodo(i);
 
-    public void eliminar(int i) {
-        throw new UnsupportedOperationException("No implementada aun");
-    }
+            if (nodoActual == primero) {
+                primero = nodoActual.siguiente;
+                if (primero != null) {
+                    primero.anterior = null;
+                } else {
+                    ultimo = null;
+                }
+            } 
+            else if (nodoActual == ultimo) {
+                ultimo = nodoActual.anterior;
+                if (ultimo != null) {
+                    ultimo.siguiente = null;
+                }
+            } 
+            else { // a chequear, debe haber otra forma
+                nodoActual.anterior.siguiente = nodoActual.siguiente;
+                nodoActual.siguiente.anterior = nodoActual.anterior;
+            }
+        
+            tamanio--;
+        }
 
     public void modificarPosicion(int indice, T elem) {
         throw new UnsupportedOperationException("No implementada aun");
