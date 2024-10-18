@@ -59,12 +59,12 @@ public class ListaEnlazada<T> implements Secuencia<T> {
                 if (i < longitud() / 2) {
                     nodoActual = primero;
                     for (int j = 0; j < i; j++) {
-                        actual = actual.siguiente;
+                        nodoActual = nodoActual.siguiente;
                     }
                 } else {
-                    actual = ultimo;
+                    nodoActual = ultimo;
                     for (int j = longitud - 1; j > i; j--) {
-                        actual = actual.anterior;
+                        nodoActual = nodoActual.anterior;
                     }
                 }
 	    }
