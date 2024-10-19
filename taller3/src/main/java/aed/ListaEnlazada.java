@@ -113,7 +113,8 @@ public class ListaEnlazada<T> implements Secuencia<T> {
         }
 
     public void modificarPosicion(int indice, T elem) {
-        throw new UnsupportedOperationException("No implementada aun");
+        Nodo<T> nodoActual = obtenerNodo(indice);
+        nodoActual.dato = elem; // cambia el valor, no los punteros
     }
 
     public ListaEnlazada(ListaEnlazada<T> lista) {
