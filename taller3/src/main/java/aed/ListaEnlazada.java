@@ -31,7 +31,7 @@ public class ListaEnlazada<T> implements Secuencia<T> {
 
     public void agregarAdelante(T elem) {
         Nodo<T> nuevo = new Nodo<T>(elem);
-        if(primero == null){ // caso lista vacía
+        if(primero == null){
             primero = nuevo;
             ultimo = nuevo;
         }else{
@@ -44,7 +44,7 @@ public class ListaEnlazada<T> implements Secuencia<T> {
 
     public void agregarAtras(T elem) {
         Nodo<T> nuevo = new Nodo<T>(elem);
-        if(primero == null){ // caso lista vacía
+        if(primero == null){
             primero = nuevo;
             ultimo = nuevo;
         }else{
