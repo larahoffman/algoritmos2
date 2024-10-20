@@ -26,7 +26,7 @@ public class ListaEnlazada<T> implements Secuencia<T> {
     }
 
     public int longitud() {
-        return tamanio;
+        return this.tamanio;
     }
 
     public void agregarAdelante(T elem) {
@@ -144,40 +144,42 @@ public class ListaEnlazada<T> implements Secuencia<T> {
     }
 
     private class ListaIterador implements Iterador<T> {
-    	// Completar atributos privados
+    	Nodo<T> nodoPrevio; 
+        Nodo<T> nodoActual;  
+
+        public ListaIterador(){
+            this.nodoPrevio = null; 
+            this.nodoActual = primero; 
+        }
 
         public boolean haySiguiente() {
-	        throw new UnsupportedOperationException("No implementada aun");
+            return this.nodoActual != null; 
         }
         
         public boolean hayAnterior() {
-	        throw new UnsupportedOperationException("No implementada aun");
+            return this.nodoPrevio != null; 
         }
 
         public T siguiente() {
-	        throw new UnsupportedOperationException("No implementada aun");
+            Nodo<T> nodoTemporal = this.nodoActual;
+            this.nodoPrevio = this.nodoActual;
+            this.nodoActual = this.nodoActual.siguiente;
+
+            return nodoTemporal.dato;
         }
         
 
         public T anterior() {
-	        throw new UnsupportedOperationException("No implementada aun");
+            Nodo<T> nodoTemporal = this.nodoPrevio;
+            this.nodoActual = this.nodoPrevio;
+            this.nodoPrevio = this.nodoPrevio.anterior;
+
+            return nodoTemporal.dato;
         }
     }
 
     public Iterador<T> iterador() {
-	    throw new UnsupportedOperationException("No implementada aun");
-    }
-    public static void main(String[] args) {
-        ListaEnlazada<Integer> lista = new ListaEnlazada<>();
-
-        lista.agregarAdelante(42);
-        lista.agregarAdelante(19);
-        lista.agregarAtras(3);
-        lista.agregarAtras(129);
-
-        System.out.println(lista.longitud()); 
-        System.out.println(lista);
-
+	    return new ListaIterador();
     }
 }
 
