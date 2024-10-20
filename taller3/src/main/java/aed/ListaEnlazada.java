@@ -124,22 +124,23 @@ public class ListaEnlazada<T> implements Secuencia<T> {
             nodoActual = nodoActual.siguiente;
         }
     }
-    //seguir
+
     @Override
     public String toString() {
-        String elementos = "[";
-        ListaEnlazada<T> copiaLista = new ListaEnlazada<>(this);
-        Nodo<T> nodoActual = this.primero;
-        for(int i = 0; i <= longitud() / 2; i++){
-            elementos += nodoActual.dato + ",";
-        } //no estoy recorriendo todos los nodos, siempre se queda con el primero
-        nodoActual = this.ultimo;
-        for(int i = longitud() - 1; i > 1 ; i--){
-            elementos += nodoActual.dato + ",";
-            //elementos += ",";
+        StringBuilder elementos = new StringBuilder();
+        elementos.append("[");
+        Nodo<T> nodoActual = primero;
+
+        for(int i = 0; i < longitud(); i++){
+            elementos.append(nodoActual.dato);
+            if(i < longitud() - 1){
+                elementos.append(", ");
+            }
+            nodoActual = nodoActual.siguiente;
         }
-        elementos += "]";
-        return elementos;
+        elementos.append("]");
+
+        return elementos.toString();
     }
 
     private class ListaIterador implements Iterador<T> {
@@ -174,16 +175,9 @@ public class ListaEnlazada<T> implements Secuencia<T> {
         lista.agregarAtras(3);
         lista.agregarAtras(129);
 
+        System.out.println(lista.longitud()); 
+        System.out.println(lista);
 
-        // lista.agregarAlFinal(10);
-        // lista.agregarAlFinal(20);
-        // lista.agregarAlInicio(5);
-
-        System.out.println(lista.longitud()); // Imprime: 5 10 20
-        System.out.println(lista); // Imprime: 20 10 5
-
-        // lista.eliminar(10);
-        // lista.mostrar(); // Imprime: 5 20
     }
 }
 
