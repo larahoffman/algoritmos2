@@ -124,10 +124,22 @@ public class ListaEnlazada<T> implements Secuencia<T> {
             nodoActual = nodoActual.siguiente;
         }
     }
-    
+    //seguir
     @Override
     public String toString() {
-        throw new UnsupportedOperationException("No implementada aun");
+        String elementos = "[";
+        ListaEnlazada<T> copiaLista = new ListaEnlazada<>(this);
+        Nodo<T> nodoActual = this.primero;
+        for(int i = 0; i <= longitud() / 2; i++){
+            elementos += nodoActual.dato + ",";
+        } //no estoy recorriendo todos los nodos, siempre se queda con el primero
+        nodoActual = this.ultimo;
+        for(int i = longitud() - 1; i > 1 ; i--){
+            elementos += nodoActual.dato + ",";
+            //elementos += ",";
+        }
+        elementos += "]";
+        return elementos;
     }
 
     private class ListaIterador implements Iterador<T> {
@@ -158,7 +170,9 @@ public class ListaEnlazada<T> implements Secuencia<T> {
         ListaEnlazada<Integer> lista = new ListaEnlazada<>();
 
         lista.agregarAdelante(42);
+        lista.agregarAdelante(19);
         lista.agregarAtras(3);
+        lista.agregarAtras(129);
 
 
         // lista.agregarAlFinal(10);
@@ -166,7 +180,7 @@ public class ListaEnlazada<T> implements Secuencia<T> {
         // lista.agregarAlInicio(5);
 
         System.out.println(lista.longitud()); // Imprime: 5 10 20
-        System.out.println(lista.obtener(1)); // Imprime: 20 10 5
+        System.out.println(lista); // Imprime: 20 10 5
 
         // lista.eliminar(10);
         // lista.mostrar(); // Imprime: 5 20
