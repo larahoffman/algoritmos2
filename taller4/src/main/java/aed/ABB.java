@@ -34,17 +34,16 @@ public class ABB<T extends Comparable<T>> implements Conjunto<T> {
     }
 
     public T minimo(){
-        T menor = this.raiz.dato;
-        while(raiz.izquierdo != null){
-            menor = raiz.izquierdo.dato;
-            this.raiz = raiz.izquierdo;
+        Nodo nodoActual = raiz;
+        while (nodoActual.izquierdo != null) {
+            nodoActual = nodoActual.izquierdo;
         }
-        return menor;
+        return nodoActual.dato;
     }
 
     public T maximo(){
         Nodo nodoActual = raiz;
-        while(nodoActual.derecho != null){
+        while (nodoActual.derecho != null) {
             nodoActual = nodoActual.derecho;
         }
         return nodoActual.dato;
@@ -112,5 +111,16 @@ public class ABB<T extends Comparable<T>> implements Conjunto<T> {
     public Iterador<T> iterador() {
         return new ABB_Iterador();
     }
-
+    public static void main(String[] args) {
+        ABB<String> conjunto = new ABB<String>();
+        conjunto.insertar("La Pampa");
+        System.out.println(conjunto.cardinal()); // 1
+        System.out.println(conjunto.minimo()); // La Pampa
+        System.out.println(conjunto.maximo()); // La Pampa
+        conjunto.insertar("Chubut");
+        System.out.println(conjunto.cardinal()); // 2
+        System.out.println(conjunto.minimo()); // Chubut
+        System.out.println(conjunto.maximo()); // La Pampa
+    }
 }
+
