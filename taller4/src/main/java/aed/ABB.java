@@ -5,7 +5,6 @@ import java.util.*;
 // Todos los tipos de datos "Comparables" tienen el método compareTo()
 // elem1.compareTo(elem2) devuelve un entero. Si es mayor a 0, entonces elem1 > elem2
 public class ABB<T extends Comparable<T>> implements Conjunto<T> {
-    // Agregar atributos privados del Conjunto
     private Nodo raiz;
     private int cardinal;
     private int altura;
@@ -31,23 +30,63 @@ public class ABB<T extends Comparable<T>> implements Conjunto<T> {
     }
 
     public int cardinal() {
-        throw new UnsupportedOperationException("No implementada aun");
+        return this.cardinal;
     }
 
     public T minimo(){
-        throw new UnsupportedOperationException("No implementada aun");
+        T menor = this.raiz.dato;
+        while(raiz.izquierdo != null){
+            menor = raiz.izquierdo.dato;
+            this.raiz = raiz.izquierdo;
+        }
+        return menor;
     }
 
     public T maximo(){
-        throw new UnsupportedOperationException("No implementada aun");
+        Nodo nodoActual = raiz;
+        while(nodoActual.derecho != null){
+            nodoActual = nodoActual.derecho;
+        }
+        return nodoActual.dato;
     }
 
     public void insertar(T elem){
-        throw new UnsupportedOperationException("No implementada aun");
+        raiz = insertarAux(raiz, elem);
+    }
+
+    public Nodo insertarAux(Nodo raiz, T elem){
+        if(raiz == null){
+            raiz = new Nodo(elem);
+            cardinal++;
+            return raiz;
+        }
+        if(elem.compareTo(raiz.dato) < 0){
+            raiz.izquierdo = insertarAux(raiz.izquierdo, elem);
+        }
+        if(elem.compareTo(raiz.dato) > 0){
+            raiz.derecho = insertarAux(raiz.derecho, elem);
+        }
+        return raiz;
     }
 
     public boolean pertenece(T elem){
-        throw new UnsupportedOperationException("No implementada aun");
+        boolean valor = perteneceAux(raiz, elem);
+        return valor;
+    }
+    public boolean perteneceAux(Nodo raiz, T elem){
+        if(raiz == null){
+            return false;
+        }
+        if(elem.compareTo(raiz.dato) == 0){
+            return true;
+        }
+        boolean resultado;
+        if(elem.compareTo(raiz.dato) < 0){
+            resultado = perteneceAux(raiz.izquierdo, elem);
+        }else{
+            resultado = perteneceAux(raiz.derecho, elem);
+        }
+        return resultado;
     }
 
     public void eliminar(T elem){
